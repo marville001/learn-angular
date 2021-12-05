@@ -14,6 +14,7 @@ export class TitleCasePipe implements PipeTransform {
       else word = this.toTitleCase(word);
       return word;
     });
+    
     return words.join(' ');
   }
 
