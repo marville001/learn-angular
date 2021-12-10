@@ -37,8 +37,9 @@
 </div> -->
 
 <!-- ng for -->
+<button (click)="onAdd()">Add</button>
 <ul>
     <li *ngFor="let course of courses; index as i; even as isEven">
-        {{i}} - {{course.name}} <span *ngIf="isEven">(EVEN)</span>
+        {{i}} - {{course.name}} <button (click)="onRemove(course)">Remove</button>
     </li>
 </ul>
