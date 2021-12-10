@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  // courses = [1,2,3,4]
-  viewMode = 'map'
+  // viewMode = 'map'
+  courses = [
+    {id:1, name:"Course 1"},
+    {id:2, name:"Course 2"},
+    {id:3, name:"Course 3"}
+  ]
 }
