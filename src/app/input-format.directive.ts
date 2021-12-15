@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 export class InputFormatDirective {
   constructor(private el: ElementRef) {}
 
-  @Input('format') format: string = '';
+  @Input('appInputFormat') format: string = '';
 
   @HostListener('blur') onBlur() {
     let value: string = this.el.nativeElement.value;
