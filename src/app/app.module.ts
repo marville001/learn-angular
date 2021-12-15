@@ -4,22 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SummaryPipe } from './pipes/summary.pipe';
-import { FavoriteComponent } from './components/favorite/favorite.component';
-import { CoursesComponent } from './components/courses/courses.component';
-import { TitleCasePipe } from './pipes/title-case.pipe';
-import { InputFormatDirective } from './input-format.directive';
-import { ZippyComponent } from './components/zippy/zippy.component';
-
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent,
-    SummaryPipe,
-    FavoriteComponent,
-    TitleCasePipe,
-    InputFormatDirective,
-    ZippyComponent
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
