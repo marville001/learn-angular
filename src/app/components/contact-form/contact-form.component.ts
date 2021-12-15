@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ContactFormComponent {
   log(x: any){
-    console.log("Heeeyeeeeee");
-    
     console.log(x);
-    
+  }
+
+  submit(form: any){
+    console.log(form);
   }
 
 }
