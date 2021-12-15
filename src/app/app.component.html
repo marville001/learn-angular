@@ -37,9 +37,12 @@
 </div> -->
 
 <!-- ng for -->
-<button (click)="onAdd()">Add</button>
+<!-- <button (click)="onAdd()">Add</button>
 <ul>
     <li *ngFor="let course of courses; index as i; trackBy: trackCourse">
         {{i}} - {{course.name}} <button (click)="onRemove(course)">Remove</button>
     </li>
-</ul>
+</ul> -->
+
+<!-- Custom directives -->
+<input type="text" appInputFormat [format]="'lowercase'">
