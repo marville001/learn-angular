@@ -1,2 +1,5 @@
 @import url("bootstrap/dist/css/bootstrap");
-@import url("bootstrap-icons/font/bootstrap-icons");
+
+body{
+    padding: 20px;
+}
