@@ -25,4 +25,19 @@ export class PostsComponent {
       this.posts.splice(0, 0, post);
     });
   }
+
+  updatePost(post: any) {
+    this.http.patch(this.url+ "/"+post.id, JSON.stringify({ isRead: true }))
+      .subscribe(response=>{
+        console.log(response);
+      });
+  }
+
+  deletePost(post: any) {
+    this.http.delete(this.url+ "/"+post.id)
+      .subscribe(response=>{
+        let index = this.posts.indexOf(post)
+        this.posts.splice(index, 1)
+      });
+  }
 }
