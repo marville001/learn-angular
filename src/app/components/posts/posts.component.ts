@@ -1,17 +1,18 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css'],
 })
-export class PostsComponent {
+export class PostsComponent implements OnInit {
   posts: any[] = [];
-  private url: string = 'https://jsonplaceholder.typicode.com/posts';
 
-  constructor(private http: HttpClient) {
-    http.get(this.url).subscribe((value: any) => {
+  constructor(private postService: PostService) {}
+
+  ngOnInit(): void {
+    this.postService.getPosts().subscribe((value: any) => {
       this.posts = value;
     });
   }
@@ -19,7 +20,7 @@ export class PostsComponent {
   createPost(input: HTMLInputElement) {
     let post: any = { title: input.value };
 
-    this.http.post(this.url, JSON.stringify(post)).subscribe((id) => {
+    this.postService.createPost(post).subscribe((id) => {
       post['id'] = id;
 
       this.posts.splice(0, 0, post);
@@ -27,17 +28,16 @@ export class PostsComponent {
   }
 
   updatePost(post: any) {
-    this.http.patch(this.url+ "/"+post.id, JSON.stringify({ isRead: true }))
-      .subscribe(response=>{
+    
+      this.postService.updatePost(post).subscribe((response) => {
         console.log(response);
       });
   }
 
   deletePost(post: any) {
-    this.http.delete(this.url+ "/"+post.id)
-      .subscribe(response=>{
-        let index = this.posts.indexOf(post)
-        this.posts.splice(index, 1)
-      });
+    this.postService.deletePost(post).subscribe((response) => {
+      let index = this.posts.indexOf(post);
+      this.posts.splice(index, 1);
+    });
   }
 }
